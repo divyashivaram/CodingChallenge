@@ -93,28 +93,4 @@ Your comments:
 
 
 
-5. **Bonus task** High score submission
-
-This is an optional task - go for it to pick up extra bonus marks. Add an extra button to the game over screen to allow the user to submit their high scores to a HTTP-based webservice. A text field should be provided for the player's name. The request should be POSTed to http://example.com/score, with the request body consisting of JSON in the following format:
-
-{ name: 'An example name', score: 1000 }
-
-On success, you will get back the following JSON fragment:
-
-{ status: 'ok', message: 'Score submitted' }
-
-On error, the following format will be returned:
-
-{ status: 'error', message: <JSON Object enumerating errors> }
-
-Success or failure need to be communicated to the player in some manner. You might wish to take advantage of a JSON parsing library to assist you.
-
-
-
-Your comments:
-
-
-
-
-
 Thanks for your interest, and once again - good luck!
