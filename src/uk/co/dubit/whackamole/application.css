@@ -1,0 +1,41 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+s|Application {
+	width: 550;
+	height: 400;
+}
+
+.roundedBorder {
+	
+	corner-radius: 6;
+	border-weight: 2;
+	border-visible: true;
+	
+}
+
+.stretchToContainer {
+	
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	
+}
+
+.stretchToContainerPadding {
+	
+	left: 10;
+	top: 10;
+	right: 10;
+	bottom: 10;
+	
+}
+
+
+.titleLabel {
+	
+	font-size: 18pt;
+	
+}
