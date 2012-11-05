@@ -65,11 +65,10 @@ package uk.co.dubit.whackamole.models
 			//add them to the moleHoles ArrayCollection
 			for(var i:int = 0; i < 9; i++)
 			{
-				var moleHole:MoleHole = new MoleHole();
-				
 				//A moleHole needs a reference to the game
 				//so it can react appropriately to clicks
-				moleHole.moleGame = this;
+				var moleHole:MoleHole = new MoleHole(this);
+				
 				moleHoles.addItem(moleHole);
 			}
 			

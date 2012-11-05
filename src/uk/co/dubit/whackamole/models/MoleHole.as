@@ -18,8 +18,9 @@ package uk.co.dubit.whackamole.models
 		
 		private var showTimer:Timer;
 		
-		public function MoleHole()
+		public function MoleHole(moleGame:MoleGame)
 		{
+			_moleGame = moleGame;
 			//This time controls the amount of time
 			//a mole fills this hole for
 			showTimer = new Timer(1000, 1);
@@ -29,11 +30,6 @@ package uk.co.dubit.whackamole.models
 		public function get moleGame():MoleGame
 		{
 			return _moleGame;
-		}
-
-		public function set moleGame(value:MoleGame):void
-		{
-			_moleGame = value;
 		}
 
 		[Bindable]
