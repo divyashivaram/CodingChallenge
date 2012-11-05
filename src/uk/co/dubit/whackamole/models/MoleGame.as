@@ -1,6 +1,5 @@
 package uk.co.dubit.whackamole.models
 {
-	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
@@ -16,6 +15,8 @@ package uk.co.dubit.whackamole.models
 	 * score
 	 * 
 	 **/
+	
+	[Event(name="gameOver", type="uk.co.dubit.whackamole.models.events.MoleGameEvent")]
 	public class MoleGame extends EventDispatcher
 	{
 		

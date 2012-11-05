@@ -5,6 +5,7 @@ package uk.co.dubit.whackamole.views
 	
 	import uk.co.dubit.whackamole.views.events.IntroductionViewEvent;
 	
+	[Event(name="introductionStart", type="uk.co.dubit.whackamole.views.events.IntroductionViewEvent")]
 	public class IntroductionViewBase extends Group
 	{
 		public var startButton:Button;

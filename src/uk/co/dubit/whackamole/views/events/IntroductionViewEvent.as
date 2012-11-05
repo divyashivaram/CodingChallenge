@@ -4,7 +4,7 @@ package uk.co.dubit.whackamole.views.events
 	
 	public class IntroductionViewEvent extends Event
 	{
-		public static const START:String = "introduction_start";
+		public static const START:String = "introductionStart";
 		
 		public function IntroductionViewEvent(type:String, bubbles:Boolean=false, cancelable:Boolean=false)
 		{

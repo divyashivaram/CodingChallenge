@@ -4,7 +4,7 @@ package uk.co.dubit.whackamole.models.events
 	
 	public class MoleGameEvent extends Event
 	{
-		public static const GAME_OVER:String = "game_over";
+		public static const GAME_OVER:String = "gameOver";
 		
 		private var _score:int;
 		
