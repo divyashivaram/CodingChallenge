@@ -27,12 +27,14 @@ package uk.co.dubit.whackamole
 		{
 			var introductionView:IntroductionView = new IntroductionView();
 			introductionView.addEventListener(IntroductionViewEvent.START, onIntroductionViewStart);
+			
 			loadView(introductionView);
 		}
 		
 		protected function onIntroductionViewStart(event:IntroductionViewEvent):void
 		{
-			event.target.removeEventListener(IntroductionViewEvent, arguments.callee);
+			event.target.removeEventListener(event.type, arguments.callee);
+			
 			loadMainGame();
 		}
 		
@@ -40,6 +42,7 @@ package uk.co.dubit.whackamole
 		{
 			var moleGameView:MoleGameView = new MoleGameView();
 			moleGameView.moleGame = new MoleGame();
+
 			loadView(moleGameView);
 		}
 		
