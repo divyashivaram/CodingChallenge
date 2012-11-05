@@ -43,16 +43,16 @@ Modify the Introduction screen to allow the user to choose one of three difficul
 Currently there is only one type of mole that uses the standard_mole.png asset. Create two more types of mole with the following properties:
 
 Fire Mole
-*Points awarded for killing: 100
-*Time showing on screen (ms): 1800
-*Asset to use: fire_mole.png
-*Number of clicks required to kill: 2
+* Points awarded for killing: 100
+* Time showing on screen (ms): 1800
+* Asset to use: fire_mole.png
+* Number of clicks required to kill: 2
 
 Zombie Mole
-*Points awarded for killing: 400
-*Time showing on screen (ms): 1200
-*Asset to use: zombie_mole.png
-*Number of clicks required to kill: 3
+* Points awarded for killing: 400
+* Time showing on screen (ms): 1200
+* Asset to use: zombie_mole.png
+* Number of clicks required to kill: 3
 
 When spawning a new mole, have a 60% chance of creating a standard mole, a 25% chance of creating a fire mole, and a 15% chance of creating a zombie mole.
 
