@@ -43,16 +43,16 @@ Modify the Introduction screen to allow the user to choose one of three difficul
 Currently there is only one type of mole that uses the standard_mole.png asset. Create two more types of mole with the following properties:
 
 Fire Mole
-  Points awarded for killing: 100
-  Time showing on screen (ms): 1800
-  Asset to use: fire_mole.png
-  Number of clicks required to kill: 2
+*Points awarded for killing: 100
+*Time showing on screen (ms): 1800
+*Asset to use: fire_mole.png
+*Number of clicks required to kill: 2
 
 Zombie Mole
-  Points awarded for killing: 400
-  Time showing on screen (ms): 1200
-  Asset to use: zombie_mole.png
-  Number of clicks required to kill: 3
+*Points awarded for killing: 400
+*Time showing on screen (ms): 1200
+*Asset to use: zombie_mole.png
+*Number of clicks required to kill: 3
 
 When spawning a new mole, have a 60% chance of creating a standard mole, a 25% chance of creating a fire mole, and a 15% chance of creating a zombie mole.
 
@@ -72,22 +72,22 @@ This task requires creating a feature from scratch, and as such it gives you the
 Acheivements have become a standard feature of games over the past few years. They are awarded to the player when they meet a certain set of criteria. For example, the user might be awarded an achievement for breaking a score threshold for the first time. Add the following acheivements into the game, and have them appear in the section titled 'Achievements' to the right of the main game area:
 
 
-Achievement name: Apprentice
+Achievement name: Apprentice - 
 Criteria required: Kill over 15 moles during a single game
 
-Achievement name: Master
+Achievement name: Master - 
 Criteria required: Kill more than 40 zombie moles in a single game
 
-Achievement name: Mole massacre
+Achievement name: Mole massacre - 
 Criteria required: Kill over 55 moles during a game
 
-Achievement name: Fireman
+Achievement name: Fireman - 
 Criteria required: Kill more than 10 fire moles in a single game
 
-Achievement name: Apocolyptica
+Achievement name: Apocolyptica - 
 Criteria required: Kill more than 5 zombie moles in a game
 
-Achievement name: Soft touch
+Achievement name: Soft touch - 
 Criteria required: Miss more than 30 moles during a game
 
 
