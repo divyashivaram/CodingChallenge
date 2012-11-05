@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<views:MoleGameViewBase xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:views="uk.co.dubit.whackamole.views.*"
+		 xmlns:components="uk.co.dubit.whackamole.views.components.*"
+		 styleName="stretchToContainer">
+	<fx:Declarations>
+		<s:Sequence id="startAnimation" effectEnd="startAnimationEnd()">
+			<s:Sequence id="readyAnimation" target="{readyLabel}" >
+				<s:Parallel duration="400">
+					<s:Fade alphaFrom="0" alphaTo="1" />
+					<s:Scale scaleXFrom="0" scaleYFrom="0" scaleXTo="1" scaleYTo="1" />
+				</s:Parallel>
+				<s:Pause duration="1000" />
+				<s:Fade alphaFrom="1" alphaTo="0" duration="100" />
+			</s:Sequence>
+			<s:Sequence id="goAnimation" target="{goLabel}" >
+				<s:Parallel duration="400">
+					<s:Fade alphaFrom="0" alphaTo="1" />
+					<s:Scale scaleXFrom="0" scaleYFrom="0" scaleXTo="1" scaleYTo="1" />
+				</s:Parallel>
+				<s:Pause duration="1000" />
+				<s:Fade alphaFrom="1" alphaTo="0" duration="100" />
+			</s:Sequence>
+		</s:Sequence>
+	</fx:Declarations>
+	
+	<s:VGroup width="100%" height="100%" paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10" gap="10">
+		
+		<s:HGroup width="100%" height="100%" gap="10">
+			
+			<s:BorderContainer styleName="roundedBorder" minHeight="0" minWidth="0" width="66%" height="100%" >
+				
+				<s:Label id="readyLabel" text="Ready?" fontSize="72" color="0xffffff" verticalCenter="0" horizontalCenter="0" alpha="0">
+					<s:filters>
+						<s:GlowFilter color="0x000000" strength="10" />
+					</s:filters>		
+				</s:Label>
+				
+				<s:Label id="goLabel" text="Go!" fontSize="72" color="0xffffff" verticalCenter="0" horizontalCenter="0" alpha="0">
+					<s:filters>
+						<s:GlowFilter color="0x000000" strength="10" />
+					</s:filters>		
+				</s:Label>
+				
+				<s:DataGroup
+					id="moleHolesDataGroup"
+					dataProvider="{ moleHoles }"
+					itemRenderer="uk.co.dubit.whackamole.views.MoleHoleItemRenderer"
+					verticalCenter="0" horizontalCenter="0">
+					<s:layout>
+						<s:TileLayout requestedRowCount="3" requestedColumnCount="3" horizontalGap="10"	verticalGap="10" />
+					</s:layout>				
+				</s:DataGroup>
+			</s:BorderContainer>
+			
+			<s:VGroup width="33%" height="100%" gap="10">
+				
+				<s:BorderContainer styleName="roundedBorder" minHeight="0" minWidth="0" width="100%" height="30" >
+					<s:Label text="Achievements" verticalCenter="0" horizontalCenter="0" />
+				</s:BorderContainer>
+				
+				<s:BorderContainer styleName="roundedBorder" minHeight="0" minWidth="0" width="100%" height="100%" >
+					
+				</s:BorderContainer>	
+			
+			</s:VGroup>
+			
+		</s:HGroup>
+		
+		
+		<s:BorderContainer styleName="roundedBorder" minHeight="0" minWidth="0" width="100%" height="30" bottom="10" >
+			<s:Label text="Score: { _moleGame.score }" left="10" verticalCenter="0"/>
+		</s:BorderContainer>
+		
+	</s:VGroup>
+	
+</views:MoleGameViewBase>

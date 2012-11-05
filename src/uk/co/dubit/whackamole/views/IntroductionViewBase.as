@@ -1,16 +1,17 @@
 package uk.co.dubit.whackamole.views
 {
 	import spark.components.Button;
-	import uk.co.dubit.whackamole.framework.View;
+	import spark.components.Group;
 	
-	public class IntroductionViewBase extends View
+	import uk.co.dubit.whackamole.views.events.IntroductionViewEvent;
+	
+	public class IntroductionViewBase extends Group
 	{
 		public var startButton:Button;
 		
 		protected function onStartButtonClick() : void
 		{
-			//Skip straight to the main game
-			controller.loadMainGame();
+			dispatchEvent(new IntroductionViewEvent(IntroductionViewEvent.START));
 		}
 	}
 }

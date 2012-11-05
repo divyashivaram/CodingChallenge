@@ -5,21 +5,15 @@ package uk.co.dubit.whackamole
 	import spark.components.Application;
 	import spark.components.Group;
 	
-	import uk.co.dubit.whackamole.framework.IGameController;
-	import uk.co.dubit.whackamole.framework.Model;
-	import uk.co.dubit.whackamole.framework.View;
-	import uk.co.dubit.whackamole.models.MainGame;
+	import uk.co.dubit.whackamole.models.MoleGame;
 	import uk.co.dubit.whackamole.views.IntroductionView;
-	import uk.co.dubit.whackamole.views.MainGameView;
-	
-	
+	import uk.co.dubit.whackamole.views.MoleGameView;
+	import uk.co.dubit.whackamole.views.events.IntroductionViewEvent;
+
 	/**
-	 * This main application class implements the IGameController interface
-	 * so it can route state change requests from the views; the system is
-	 * built around an example mini-IoC-based MVC framework.
-	 *  
-	 **/ 
-	public class WhackAMoleBase extends Application implements IGameController
+	 * A small whack-a-mole game based around MVC principles
+	 */
+	public class WhackAMoleBase extends Application
 	{
 		public var viewContainer:Group;
 				
@@ -31,45 +25,35 @@ package uk.co.dubit.whackamole
 		
 		public function loadIntroduction() : void
 		{
-			loadView(IntroductionView);
+			var introductionView:IntroductionView = new IntroductionView();
+			introductionView.addEventListener(IntroductionViewEvent.START, onIntroductionViewStart);
+			loadView(introductionView);
+		}
+		
+		protected function onIntroductionViewStart(event:IntroductionViewEvent):void
+		{
+			event.target.removeEventListener(IntroductionViewEvent, arguments.callee);
+			loadMainGame();
 		}
 		
 		public function loadMainGame() : void
 		{
-			loadView(MainGameView, MainGame);
+			var moleGameView:MoleGameView = new MoleGameView();
+			moleGameView.moleGame = new MoleGame();
+			loadView(moleGameView);
 		}
 		
-		private function loadView(viewClass:Class, modelClass:Class = null) : void
+		private function loadView(view:Group) : void
 		{
-			//Create a new instance of the supplied view
-			var view:View = new viewClass();
-			if(!view) throw new Error("Could not load view");
-			
 			//Clear any previous views in the container and add
 			viewContainer.removeAllElements();
 			viewContainer.addElement(view);
-			
-			//Property based dependency injection 
-			view.controller = this;
-			
-			//There may or may not be a model required for the
-			//requested view; check and instantiate appropriately
-			if(modelClass)
-			{
-				var model:Model = new modelClass() as Model;
-				if(!model) throw new Error("Could not load model");
-				
-				//Give model reference to the controller
-				//and link the view up to the model
-				model.controller = this;
-				view.model = model;
-			}
 		}
 		
 		private function onCreationComplete(event:FlexEvent) : void
 		{
 			//When the application is first created, we want to show the introductory view 
-			loadView(IntroductionView);
+			loadIntroduction();
 		}
 		
 	}

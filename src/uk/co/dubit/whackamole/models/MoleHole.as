@@ -1,11 +1,8 @@
 package uk.co.dubit.whackamole.models
 {
-	import flash.events.Event;
-	import flash.events.EventDispatcher;
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
 	
-	import uk.co.dubit.whackamole.framework.Model;
 	import uk.co.dubit.whackamole.models.moles.Mole;
 
 	/**
@@ -14,12 +11,10 @@ package uk.co.dubit.whackamole.models
 	 * the mole property is null.
 	 *  
 	 **/
-	public class MoleHole extends Model
+	public class MoleHole
 	{
-		[Bindable]
-		public var mole:Mole;
-		
-		public var mainGame:MainGame;
+		private var _mole:Mole;
+		private var _moleGame:MoleGame;
 		
 		private var showTimer:Timer;
 		
@@ -31,6 +26,27 @@ package uk.co.dubit.whackamole.models
 			showTimer.addEventListener(TimerEvent.TIMER_COMPLETE, onShowTimerComplete);
 		}
 		
+		public function get moleGame():MoleGame
+		{
+			return _moleGame;
+		}
+
+		public function set moleGame(value:MoleGame):void
+		{
+			_moleGame = value;
+		}
+
+		[Bindable]
+		public function get mole():Mole
+		{
+			return _mole;
+		}
+
+		public function set mole(value:Mole):void
+		{
+			_mole = value;
+		}
+
 		[Bindable]
 		public function get occupantDead() : Boolean
 		{
@@ -61,7 +77,7 @@ package uk.co.dubit.whackamole.models
 				//Whack the mole, and if it results in a
 				//kill, rack up the score
 				mole.hit();
-				if(mole.dead) mainGame.addScore(mole.points);
+				if(mole.dead) moleGame.addScore(mole.points);
 			}
 		}
 		
